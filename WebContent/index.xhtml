@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:mobi="http://www.icesoft.com/icefaces/mobile/component">
+<h:head>
+	<title>ICEmobile</title>
+	<mobi:deviceResource />
+</h:head>
+<h:body>
+	<h:form>
+		<mobi:fieldsetGroup>
+			<mobi:fieldsetRow>
+				<mobi:inputText id="rut" type="text" autoCorrect="off" value="#{loginPage.rutCliente}" singleSubmit="true" maxlength="12" required="true">
+					<f:attribute name="label" value="RUT" />
+				</mobi:inputText>
+			</mobi:fieldsetRow>
+			<mobi:fieldsetRow>
+				<mobi:inputText id="clave" type="password" autoCorrect="off" value="#{loginPage.clave}" singleSubmit="true" maxlength="10" required="true">
+					<f:attribute name="label" value="Clave" />
+					<f:validateLength minimum="8" maximum="10"/>
+				</mobi:inputText>
+			</mobi:fieldsetRow>
+		</mobi:fieldsetGroup>
+		<mobi:commandButton name="submitB" buttonType="default" value="Ingresar" actionListener="#{loginPage.ingresar}" submitNotification="submitNotification" />
+		<mobi:submitNotification id="submitNotification">
+            <h:outputText value="Procesando..."/>
+        </mobi:submitNotification>
+	</h:form>
+</h:body>
+</html>
